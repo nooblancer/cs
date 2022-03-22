@@ -1,0 +1,63 @@
+#Perform all the operations with reference to table ‘Employee’ through MySQL-Python connectivity.
+import MySQLdb
+#Using connect method to connect database
+db1=MySQLdb.connect("localhost","root","","TESTDB" )
+#using cursor() method for preparing cursor
+cursor=db1.cursor()
+#Preparing SQL statement to create EMP table
+sql="CREATE TABLE EMP(empno integer primary key,ename varchar(25) not null,salary float);"
+cursor.execute(sql)
+#disconnect from server 
+db1.close()
+
+#Inserting a record in ‘emp’
+import MySQLdb
+db1 = MySQLdb.connect("localhost","root","","TESTDB" )
+cursor = db1.cursor()
+#Prepareing SQL statement to insert one record with the given values sql = "INSERT INTO EMP VALUES (1,'ANIL KUMAR',86000);"
+try:
+    cursor.execute(sql)
+    db1.commit()
+except:
+    db1.rollback()
+    db1.close()
+
+#Fetching all the records from EMP table having salary more than 70000.
+import MySQLdb
+db1=MySQLdb.connect("localhost","root","","TESTDB" ) cursor = db1.cursor()
+sql="SELECT*FROM EMP WHERE SALARY > 70000;"
+try:
+ cursor.execute(sql)
+#using fetchall() function to fetch all records from the table EMP and store in resultset
+resultset=cursor.fetchall()
+ for row in resultset:
+    print (row)
+ except:
+     print ("Error: unable to fetch data")
+db1.close()
+
+#Updating record(s) of the table using UPDATE
+import MySQLdb
+db1=MySQLdb.connect("localhost","root","","TESTDB" )
+cursor = db1.cursor()
+#Preparing SQL statement to increase salary of all employees whose salary is less than 80000
+sql="UPDATE EMP SET salary = salary +1000 WHERE salary<80000;"
+try:
+    cursor.execute(sql)
+    db1.commit()
+except:
+    db1.rollback() 
+db1.close()
+
+#Deleting record(s) from table using DELETE
+import MySQLdb
+db1=MySQLdb.connect("localhost","root","","TESTDB" )
+cursor = db1.cursor()
+sal=int(input("Enter salary whose record to be deleted : ")) #Preparing SQL statement to delete records as per given condition sql = "DELETE FROM EMP WHERE salary =sal”
+try:
+    cursor.execute(sql)
+print(cursor.rowcount, end=" record(s) deleted ")
+db1.commit()
+except:
+    db1.rollback()
+db1.close()

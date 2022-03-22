@@ -1,0 +1,41 @@
+#Write a programme to create Lpush() and Lpop() function to do push and pop operation on a stack using a list e.g. take a student information and push and pop the details
+def isEmpty(S):
+    if len(S)==0:
+        return True
+    else:
+        return False
+def Push(S,item):
+    S.append(item)
+    top=len(s)-1
+def Pop(S):
+    if isEmpty(S):
+        return "Underflow"
+    else:
+        v=S.pop()
+        if len(S)==0:
+            top=none
+        else:
+            top=len(S)-1
+        return val
+    #main funtion beings here    
+    S=[]
+    top=none
+    while True:
+        print("***STACK DEMONSTRATION***")
+        print("1. Push")
+        print("2. Pop")    
+        print("0. Exit")
+        ch=int(input("Enter your choice: "))
+        if ch==1:
+            v=int(input("Enter the item to Push"))
+            Push(S,val)
+        elif ch==2:
+            v=Pop(S)
+            if v=="UNDERFLOW":
+                print("STACK IS EMPTY")
+            else:
+                print("Deleted Iten was:", v)
+        elif ch==0:
+            print("THANK YOU")
+            break
+         

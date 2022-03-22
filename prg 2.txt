@@ -1,0 +1,51 @@
+#Write a program to create a student table and insert data. Implement the following SQL commands on the student table
+use studentdb;
+
+create table student(roll int not null, studentname varchar(30) not null, class char(5) not null, section chat(1) not null, classstream char(20) not null);
+desc student;
+
+insert into student values
+(1, "Akhil", "XII", "A", "Science"),
+(2, "Satya", "XII", "C", "Science"),
+(3, "Antony", "XII", "D", "Commerce"),
+(4, "Vishal", "XII", "E", "Humanities"),
+(5, "Deepak", "XII", "A", "Science")
+(6, "Brij", "XII", "B", "Science");
+select * from student;
+
+alter table student
+add(Substream char(20) not null), (Percentage float not null);
+desc student
+
+update student set Substream = "Computer Science" where roll = 1;
+update student set Substream = "Biology" where roll = 2;
+update student set Substream = "Maths" where roll = 3;
+update student set Substream = "NA" where roll = 4;
+update student set Substream = "Computer Science" where roll = 5;
+update student set Substream = "Computer Science" where roll = 6;
+
+update student set Percentage = 81 where roll = 6;
+update student set Percentage = 69 where roll = 6;
+update student set Percentage = 92 where roll = 6;
+update student set Percentage = 55 where roll = 6;
+update student set Percentage = 85 where roll = 6;
+update student set Percentage = 72 where roll = 6; select * from student;
+
+alter table student add(Adhaar_card bigint not null);
+desc student;
+alter table student
+drop column Adhaar_card;
+
+select avg(Percentage) from student;
+
+select count(*) from student;
+
+select min(Percentage) from student;
+
+select max(Percentage) from student;
+
+select sum(Percentage)/count(*) from student where substream = "Computer Science";
+
+delete from student where classstream = "Science"; select * from
+
+desc student;
